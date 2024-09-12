@@ -1,0 +1,37 @@
+.accordion-checkbox {
+  display: none;
+}
+
+/* Style for the accordion content */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  transition: max-height 0.3s ease-out;
+}
+
+/* Style for the accordion content when checkbox is checked */
+.accordion-checkbox:checked + .accordion-header + .accordion-content {
+  max-height: 500px; /* Adjust as needed based on your content */
+}
+
+/* Rotate the indicator when the accordion is open */
+.accordion-checkbox:checked + .accordion-header .indicator {
+  transform: rotate(180deg);
+}
+
+#accordion-1:checked + .accordion-header {
+  background-color: rgb(251 191 36); /* Tailwind's bg-blue-600 */
+  color: #000000; /* Optional: Change text color when checked */
+}
+
+#accordion-2:checked + .accordion-header {
+  background-color: rgb(251 191 36); /* Tailwind's bg-blue-600 */
+  color: #000000; /* Optional: Change text color when checked */
+}
+
+#accordion-3:checked + .accordion-header {
+  background-color: rgb(251 191 36); /* Tailwind's bg-blue-600 */
+  color: #000000; /* Optional: Change text color when checked */
+}
