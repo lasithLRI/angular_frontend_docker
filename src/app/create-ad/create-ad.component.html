@@ -1,0 +1,131 @@
+<app-header></app-header>
+
+<div class="max-w-4xl h-auto bg-amber-200 mx-auto mt-4 pb-2">
+
+  <p class="text-xl p-5 font-bold">Create Advertisement</p>
+  <p class="text-xl p-5 font-bold">Instructions</p>
+
+  <form [formGroup]="createAd" (ngSubmit)="createAdvertisement()" class="mx-4">
+
+    <div class="w-full h-auto flex">
+
+      <div class="upload-images">
+
+        <label for="images-list"  >
+      <span class="hover:cursor-pointer flex flex-col items-center justify-center border w-48 h-48 bg-gray-50">
+        <span class="text-3xl text-gray-500 ">
+        <i class="ri-folder-upload-line "></i>
+        </span><br>
+        <span class="text-gray-500">Upload images</span>
+      </span>
+
+        </label>
+        <br>
+        <input type="file" name="images" id="images-list" formControlName="images" (change)="onImageSelected($event)" class="hidden" >
+
+        <div class="w-auto h-auto flex">
+
+          <div class="w-32 h-32 bg-amber-400 mx-2 relative mb-2"  *ngFor=" let url of selectedImageUrls; let i = index">
+            <img [src]="url" class="object-cover w-full h-full ">
+            <button (click)="onRemoveImage(selectedImages[i],$event)" class="absolute top-0 right-0 text-2xl text-white">
+              <i class="ri-close-circle-fill"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="category flex border p-2">
+      <div class="main-category p-2">
+        <label for="category-dropdown" >Select category :</label>
+        <br>
+        <select name="category" id="category-dropdown" class="ml-2 w-72 h-12 py-2 px-5" formControlName="category">
+          <option value="" selected disabled>Select advertisement category</option>
+          <option value="category1">category name</option>
+          <option value="category1">category name</option>
+          <option value="category1">category name</option>
+        </select>
+      </div>
+      <div class="sub-category p-2 ml-20">
+        <label for="sub-category-dropdown" >Select sub category :</label>
+        <br>
+        <select name="category" id="sub-category-dropdown" class="ml-2 w-80 h-12 py-2 px-5" formControlName="sub_category">
+          <option value="" selected disabled>Select advertisement sub category</option>
+          <option value="subcategory1">Sub category name</option>
+          <option value="subcategory1">Sub category name</option>
+          <option value="subcategory1">Sub category name</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="title w-full  border p-2 my-2">
+      <label for="title">Enter title for advertisement : </label><br>
+      <textarea name="title" id="title" cols="30" rows="1" class="w-full px-5 py-2 mt-2" formControlName="title"></textarea>
+    </div>
+
+    <div class="description w-full  border p-2 my-2">
+      <label for="description">Enter description for advertisement : </label><br>
+      <textarea name="title" id="description" cols="30" rows="12" class="w-full px-5 py-2 mt-2" formControlName="description"></textarea>
+    </div>
+
+    <div class="province flex border p-2">
+      <div class="main-town p-2">
+        <label for="province-dropdown" >Select your Area :</label>
+        <br>
+        <select name="province" id="province-dropdown" class="ml-2 w-72 h-12 py-2 px-5" formControlName="province">
+          <option value="" selected disabled>Select your province</option>
+          <option value="province1">province name</option>
+          <option value="province1">province name</option>
+          <option value="province1">province name</option>
+        </select>
+      </div>
+
+      <div class="sub-town p-2 ml-10">
+        <label for="town-dropdown" >Select Town :</label>
+        <br>
+        <select name="category" id="town-dropdown" class="ml-2 w-80 h-12 py-2 px-5" formControlName="town">
+          <option value="" selected disabled>Select your town</option>
+          <option value="Town1">Town name</option>
+          <option value="Town1">Town name</option>
+          <option value="Town1">Town name</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="price flex border p-2">
+      <div class="main-price p-2">
+        <label for="category-dropdown" >Enter Price :</label>
+        <br>
+        <input type="number" class="ml-2 w-80 h-12 py-2 px-5 no-arrows" placeholder="Enter price" formControlName="price">
+      </div>
+      <div class="price_type p-2 ml-5">
+        <label for="price_type" >Select price type :</label>
+        <br>
+        <select name="price-type" id="price_type" class="ml-2 w-80 h-12 py-2 px-5" formControlName="price_type">
+          <option value="" selected disabled>Select price type</option>
+          <option value="per-unit">Per Unit</option>
+          <option value="per-hour">Per Hour</option>
+
+        </select>
+      </div>
+    </div>
+
+
+    <div class="contact w-full  border p-2 my-2">
+      <label for="contact">Enter contact : </label><br>
+      <input name="contact" id="contact"  class="w-full px-5 py-2 mt-2" placeholder="Enter contact here" formControlName="contact">
+    </div>
+
+    <div class="button-area w-full h-10 flex justify-end my-5">
+      <button type="reset" class="py-2 px-10 bg-gray-200 text-black mr-2" (click)="onReset()">Reset</button>
+      <button type="submit" class="py-2 px-10 bg-black text-white" >Submit</button>
+    </div>
+
+  </form>
+
+
+</div>
